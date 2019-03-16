@@ -52,6 +52,7 @@ the account verification message.)`,
 
         invalid: {
             responseType: 'badRequest',
+            statusCode: 400,
             description: 'The provided fullName, password and/or email address are invalid.',
             extendedDescription: 'If this request was sent from a graphical user interface, the request ' +
                 'parameters should have been validated/coerced _before_ they were sent.'
@@ -115,6 +116,9 @@ the account verification message.)`,
             sails.log.info('Skipping new account email verification... (since `verifyEmailAddresses` is disabled)');
         }
 
-    }
 
+
+        return { message: "registered succesfully" }
+
+    }
 };

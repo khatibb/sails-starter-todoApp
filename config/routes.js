@@ -12,23 +12,15 @@ module.exports.routes = {
 
     'PUT   /api/v1/entrance/login': { action: 'entrance/login' },
     'POST  /api/v1/entrance/signup': { action: 'entrance/signup' },
-    'POST  /api/v1/account/list/add-task': { action: 'add-task' },
-    'GET  /api/v1/account/viewList': { action: 'view-list' },
+
+    'GET  /api/v1/list': { action: 'view-list' },
+    'POST  /api/v1/list': { action: 'add-task' },
+    'DELETE  /api/v1/list/:taskId': { action: 'delete-task' },
+    'PUT  /api/v1/list/:taskId': { action: 'update-task' },
 
 
 
 
-    //For testing purposes -> to be removed later 
-    'GET /api/v1/account/view-user': {
-        skipAssets: true,
-        fn: async function(req, res) {
-            let tmp = await User.find({ id: req.session.userId })
-                .populate('list')
-                .limit(1)
-
-            res.send(tmp[0])
-        }
-    },
 
 
 };

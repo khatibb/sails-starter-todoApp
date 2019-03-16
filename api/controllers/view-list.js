@@ -8,10 +8,17 @@ async function viewList(req, res) {
         .populate('list')
         .limit(1)
 
-    return res.status(200).json({
-        success: true,
-        list: user[0].list
+    if (user != null) {
+        return res.status(200).json({
+            success: true,
+            list: user[0].list
+        })
+    }
+    return res.status(400).json({
+        success: false,
+        message: 'Couldnt fetch list '
     })
+
 }
 
 module.exports = viewList;
